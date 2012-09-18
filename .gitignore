@@ -25,3 +25,7 @@
 *.maf
 *.mtc
 *.mtc0
+
+lab0/fig/.DS_Store
+
+lab0/tex/.DS_Store
