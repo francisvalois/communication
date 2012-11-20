@@ -1,0 +1,75 @@
+%!TEX root = ../rapport.tex
+%!TEX encoding = UTF-8 Unicode
+
+\chapter{Préparation}
+\section*{Numéro 1}
+\subsection*{a)}
+Sachant que la fréquence d'échantillonnage minimale est donnée par :
+\begin{equation}
+	f_s \geq 2f_{max}
+\end{equation}
+il est possible de trouver que la fréquence de Nyquist est de 2000 Hz lorsque la fréquence du signal est de 1000 Hz.
+\subsection*{b)}
+Sachant que le signal est une sinusoïde de 20 V d'amplitude crête à crête, alors $V_{CAN}$ doit avoir une plage minimale de 20 V.
+\subsection*{c)}
+Pour trouver le rapport signal à bruit, il suffit de trouver dans l'ordre, la résolution, le bruit de quantification normalisé et la puissance du signal normalisée pour obtenir les valeurs nécessaires.
+
+La résolution s'obtient comme suit:
+\begin{equation}
+	q = \frac{V_{CAN}}{2^n} = \frac{20}{2^8} = 0.078125 V
+\end{equation}
+
+Le bruit de quantification comme suit :
+\begin{equation}
+	N_Q = \frac{q^2}{12} = \frac{0.078125^2}{12} = 5.0862 \cdot 10^{-4} W
+\end{equation}
+
+La puissance normalisée au travers d'une résistance de 1 $\ohm$ est donnée par l'équation suivante :
+\begin{equation}
+	P_{norm} = \frac{V_{in}^2}{R} = \frac{10^2}{1} = 100 W
+\end{equation}
+
+Finalement, le ratio du signal à bruit est donnée par l'équation suivante :
+\begin{equation}
+	SNR_Q = \frac{P_{norm}}{N_Q} = \frac{400}{5.0862 \cdot 10^{-4}} = 1.966 \cdot 10^5
+\end{equation}
+
+Pour obtenir la valeur en dB, il suffit d'utiliser l'équation suivante :
+\begin{equation}
+	SNR_{Q_{dB}} = 10 \log(SNR_Q) = 10 \log(1.966 \cdot 10^5) = 52.94 dB
+\end{equation}
+
+\subsection*{d)}
+Le débit peut-être obtenu à l'aide de l'équation suivante:
+\begin{equation}
+	D = F_s \cdot n = 2000 \cdot 8 = 16 kBits
+\end{equation}
+
+\section*{Numéro 2}
+\section*{Numéro 3}
+Nous savons que :
+\begin{equation}
+	V_{signal} = \frac{2^nq}{2}
+\end{equation}
+
+\begin{equation}
+	N_q = \frac{q^2}{12}
+\end{equation}
+
+\begin{equation}
+	P_{signal} = V_{signal}^2 = \frac{4^nq^2}{4}
+\end{equation}
+
+Ainsi,
+
+\begin{equation}
+	SNR_{Q_{dB}} = 10 \log\left(\frac{P_{signal}}{N_q}\right) = 10 \log\left(\frac{\frac{4^nq^2}{4}}{\frac{q^2}{12}}\right)
+\end{equation}
+
+\begin{equation}
+	SNR_{Q_{dB}}= 10 \log(3\cdot4^n) = 10\log(3) + 10\log(4^n) = 10\log(3) + 10n\log(4) \approx 4.77 + 6.02n
+\end{equation}
+
+Nous remarquons ici que l'approximation donnée dans l'énoncé du laboratoire est erronée et que notre preuve donne le même résultat que dans le livre.
+
+
