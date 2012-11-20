@@ -46,6 +46,24 @@ Le débit peut-être obtenu à l'aide de l'équation suivante:
 \end{equation}
 
 \section*{Numéro 2}
+On peut réécrire le signal h(t) sour la forme suivante:
+\begin{equation}
+h(t) = \sum_{n = -\infty}^{\infty} \Pi\left(\frac{t - nT_s}{\tau}\right)
+\label{eq:marde1}
+\end{equation}
+On sait de \ref{eq:marde1} que le spectre de cet échantillonneur est donné par l'équation suivante:
+\begin{equation}
+H(F) = \tau Sa(\pi f \tau)\cdot \sum_{k = -\infty}^{\infty} \delta(f - kf_s)
+\end{equation}
+
+On a finalement le spectre résultant du signal échantillonné:
+\begin{equation}
+W(F) = S(F) * \tau Sa(\pi f \tau)\cdot \sum_{k = -\infty}^{\infty} \delta(f - kf_s)
+\end{equation}
+
+Si l'on diminue la valeur de $\tau$, donc que l'on diminue la largeur des impulsions lors de l'échantillonnage, on a que la fréquence de $Sa(\pi f \tau)$ diminue. Si la fréquence de $Sa(\pi f \tau)$ diminue, le lobe principal (situé à $\frac{1}{\tau}$) s'éloigne de l'origine. Ce qui signifie que pour un taux d'échantillonnage constant ($f_s$ constant), on observe moins d'impact sur l'amplitude du spectre résultant.
+\paragraph{}Si l'on augmente la valeur de $\tau$, donc que l'on augmente la largeur des impulsions lors de l'échantillonnage, on a que la fréquence de $Sa(\pi f \tau)$ augmente. Si la fréquence de $Sa(\pi f \tau)$ augmente, le lobe principal (situé à $\frac{1}{\tau}$) s'approche de l'origine. Ce qui signifie que pour un taux d'échantillonnage constant ($f_s$ constant), on observe plus d'impact sur l'amplitude du spectre résultant. On a donc intérêt à avoir les impulsions les plus courtes possibles afin de réaliser un bon échantillonnage.
+
 \section*{Numéro 3}
 Nous savons que :
 \begin{equation}
